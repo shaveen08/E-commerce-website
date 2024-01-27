@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <h2 id="brand-title">Brand name</h2>
+            <div class="nav-right">
+                <ul id="drop">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Collections</a>
+                        <div class="dropdown_content">
+                            <a href="#">Man</a>
+                            <a href="#">Woman</a>
+                            <a href="#">Kids</a>
+                            <a href="#">Watches</a>
+                            <a href="#">Shoes</a>
+                            <a href="#">Accessories</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-left">
+                <img src="./images/search.png" class="search-icon">
+                <span id="login"><a href="#">login</a></span>
+                <span id="split-icon">|</span>
+                <span id="cart"><a href="#">My cart</a></span>
+            </div>        
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner">
+            <img src="./images/Poster.png">
+            <h2 id="banner-content">Elevate Your Wardrobe <br />
+                Simplyfy Your Life.
+            </h2>
+        </div>
+        <div class="cards">
+            <h2 id="card_title">Most popular</h2>
+            <div class="closet">
+                <a href="http://127.0.0.1:5500/ClothingSite/content1.html#" target="_blank">
+                    <img src="./images/black shirt1.png" alt="" class="row_posters" id="blackshirt">
+                    <div class="card-content">
+                        <h4>Black shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/tracks.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="http://127.0.0.1:5500/ClothingSite/content2.html">
+                    <img src="./images/white shirt1.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/lower.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/denim1.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+            </div>   
+        </div>
+        <div class="models">
+            <button id="exploreBtn" onclick="exploreBtn()" style="cursor: pointer;">Explore ></button>
+            <img src="./images/models.jpg" alt="">
+            <div class="model">
+                <img src="./images/model5.jpg" alt="" >
+                <img src="./images/model2.png" alt="" >
+                <img src="./images/model6.jpg" alt="" >
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+    </div>
+    <script>
+        function exploreBtn(){
+        window.location.href = "http://127.0.0.1:5500/ClothingSite/closet.html";
+        //url = "D:\PROJECTS\Javascript\Clothing site\closet.html";
+       }
+    </script>
+</body>
+</html>
