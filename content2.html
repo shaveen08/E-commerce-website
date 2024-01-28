@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins&family=Silkscreen&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body{
+        overflow-y: hidden;
+    }
+
+    /*Navigation bar*/
+    .header{
+        overflow: hidden;
+    }
+    #brand-title{
+        display: flex;
+        align-items: center;
+        margin-left: 350px;
+    }
+    .navbar{
+        padding: 0 10px;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        z-index: 1;
+        width: 100%;
+        background: #fff;
+        position: fixed;
+        flex: 1;
+        font-weight: 590;
+    }
+    .nav-left{
+        margin-right: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #split-icon{
+        padding: 0 10px;
+    }
+    .navbar a{
+        text-decoration: none;
+        color: #000;
+    }
+    #back-arrow{
+        margin-top: 5px;
+        padding: 3px;
+        height: 25px;
+        width: 25dpx;
+    }
+    #back-arrow:hover{
+        border-radius: 50%;
+        background-color: #eaeaea;
+    }
+
+    /*CONTAINER*/
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /*POSTER*/
+    .poster{
+        background-color: #d7d7d7;
+        height: 100vh;
+        width: 70%;
+    }
+    .poster img{
+        height: 100vh;
+        width: 70%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        right: 975px;
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #left-arrow, #right-arrow {
+        height: 60px;
+        width: 40px;
+        opacity: 0.5;
+    }
+
+    #left-arrow:hover, #right-arrow:hover {
+        border-radius: 50%;
+        background-color: #bebebe;
+    }
+
+    /*CONTENT*/
+    .content{
+        width: 30%;
+        margin: 150px 0;
+        padding: 0 30px;
+    }
+    #content-details, .color-palettes{
+        margin: 10px 0;
+        text-align: justify;
+    }
+
+    /*COLOR PALETTES*/
+    .colors{
+        height: 40px;
+        width: 215px;
+        border: 1px solid #9b9b9b;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .circle {
+        height: 30px; 
+        width: 30px;
+        margin: 4px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        border-radius: 50%;
+        background-color: #e4e4e4;
+    } 
+    .child1 {
+        background-color: #262626;
+    }
+
+    .child2 {
+        background-color: #8c3535;
+    }
+
+    .child3 {
+        background-color: #595755;
+    }
+
+    .child4 {
+        background-color: #eae5ec;
+    }
+    .circle:hover {
+        border: 1px solid #000;
+    } 
+
+    /*QUANTITY*/
+    .quantity{
+        display: flex;
+        align-items: center;
+        margin-left: 105px;
+        margin-bottom: 10px;
+        gap: 10px;
+    }
+    .quantity input{
+        margin: 5px 0;
+        height: 40px;
+        width: 70px;
+        padding: 0 10px;
+        border: 1px solid #9b9b9b;
+    }
+
+    /*SIZE*/
+    .size{
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        margin: 10px 0;
+    }
+    #size-child{
+        margin-bottom: 10px;
+        padding-top: 7px;
+        height: 40px;
+        width: 50px;
+        border: 1px solid #9b9b9b;
+        text-align: center;
+    }
+    #size-child:hover{
+        border: 1px solid #000;
+    }
+
+    /*CART & WISHLIST BUTTONS*/
+    .addcart-wishlist{
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+    }
+    #addcart{
+        background-color: #000;
+        color: #fff;
+        padding: 15px 30px;
+        padding-right: 75px;
+        border: none;
+    }
+    #wishlist{
+        background-color: #d7d7d7;
+        color: #000;
+        padding: 15px 30px;
+        padding-right: 80px;
+        border: none;
+    }
+    #add{
+        position: relative;
+        left: 55px;
+    }
+    #wishlist #add{
+        position: relative;
+        left: 60px;
+    }
+
+    /*Mobile view*/
+    @media only screen and (max-width: 767px){
+        .navbar{
+            height: 40px;
+            font-size: 20px;
+            width: 100%;
+            position: relative;
+            right: 240px;
+            white-space: nowrap;
+        }
+        .navbar, .nav-left {
+            margin: 0;
+        }
+        .nav-left {
+            position: relative;
+            left: 92px;
+        }
+        #back-arrow{
+            position: relative;
+            top: 4px;
+            left: 240px;
+            height: 23px;
+        }
+        .navbar h2{
+            font-size: 16px;
+        }
+        #login a, #split-icon a, #cart a{
+            font-size: 15px;
+        }
+        #login, #split-icon{
+            display: none;
+        }
+
+        /*Container*/
+        .container{
+            height: auto;  
+            width: 100%; 
+            display: flex;
+        }
+
+        /*POSTER*/
+        .poster{
+            background-color: #d7d7d7;
+            width: 100%;
+            height: 400px;
+            margin: 10px;
+        }
+        .poster img{
+            height: 300px;
+            width: 350px;
+            position: relative;
+            top: 200px;
+        }
+        .poster #left-arrow, #right-arrow{
+            display: none;
+        }
+        .content{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0;
+            width: 100%;
+            overflow: hidden;
+        }
+        #content-title{
+            font-size: 16px;
+        }
+        #content-details{
+            text-align: justify;
+            font-size: 14px;
+            width: 100% !important;
+            box-sizing: border-box;
+        }
+
+        /*COLOR PALETTES*/
+        .colors{
+            height: 38px;
+            width: 180px;
+            border: 1px solid #9b9b9b;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .circle {
+            height: 25px; 
+            width: 25px;
+        } 
+        .child1 {
+            background-color: #262626;
+        }
+
+        .child2 {
+            background-color: #8c3535;
+        }
+
+        .child3 {
+            background-color: #595755;
+        }
+
+        .child4 {
+            background-color: #eae5ec;
+        }
+        .circle:hover {
+            border: 1px solid #000;
+        } 
+
+        /*QUANTITY*/
+        .quantity{
+            gap: 10px;
+            position: relative;
+            top: 15px;
+            left: 70px;
+            padding: 0;
+            margin: 0;
+        }
+        .quantity input{
+            height: 38px;
+            width: 60px;
+        }
+
+        /*SIZE*/
+        .size{
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+        }
+        #size-child{
+            padding: 7px 15px;
+            height: 40px;
+            border: 1px solid #9b9b9b;
+            text-align: center;
+        }
+        #size-child:hover{
+            border: 1px solid #000;
+        }
+
+        /*CART & WISHLIST BUTTONS*/
+        .addcart-wishlist {
+            gap: 10px;
+            margin: 0 auto;
+            text-align: center;
+            height: 50px;
+            width: 100%;
+            overflow: hidden;
+        }
+        button{
+            width: 100%;
+            font-size: 14px;
+            padding: 0;
+            margin: 0;
+        }
+        #addcart{
+            background-color: #000;
+            color: #fff;
+            border: none;
+            white-space: nowrap;
+        }
+        #wishlist{
+            background-color: #d7d7d7;
+            color: #000;
+            border: none;
+            white-space: nowrap;
+        }
+        .addcart-wishlist span{
+            display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!--Navigation-->
+    <div class="header">
+        <div class="navbar">
+            <img src="./images/left-chevron.png" id="back-arrow" onclick="backToHome()">
+            <h2 id="brand-title">Brand name</h2>
+            <div class="nav-right">
+                <!--<span><a href="">back</a></span>-->
+            </div>
+            <div class="nav-left">
+                <span id="login"><a href="#">login</a></span>
+                <span id="split-icon">|</span>
+                <span id="cart"><a href="#">My cart</a></span>
+            </div>        
+        </div>
+    </div>
+    <!--Body-->
+    <div class="container">
+        <div class="poster">
+            <img src="./images/white shirt1.png" alt="" class="row_posters">
+            <div class="arrow">
+                <img src="./images/left-chevron.png" id="left-arrow" onclick="leftSlide()">
+                <img src="./images/right-chevron.png" id="right-arrow" onclick="rightSlide()">          
+            </div>
+        </div>
+        <div class="content">
+            <h2 id="content-title">Drop shoulder Shirt</h2>
+            <h3 id="content-details">ZARA</h3>
+            <p id="content-details">"Unisex shirt: Pure comfort in a timeless design. Soft cotton, classic fit. Your essential wardrobe staple."</p>
+            <div class="color-palettes">
+                <p>Choose color</p>
+                <div class="colors">
+                    <div class="circle child1"></div>
+                    <div class="circle child2"></div>
+                    <div class="circle child3"></div>
+                    <div class="circle child4"></div>
+                </div>
+            </div>
+            <div class="quantity">
+                <p>Qty</p>
+                <input type="number" id="qty-number" min="1" value="1">
+            </div>
+            <div class="size">
+                <div id="size-child">S</div>
+                <div id="size-child">M</div>
+                <div id="size-child">L</div>
+                <div id="size-child">XL</div>
+            </div>
+            <div class="addcart-wishlist">
+                <button id="addcart" onclick="addCart()">ADD TO CART <span id="add">+</span></button>
+                <button id="wishlist" onclick="wishList()">WISH LIST<span id="add">+</span></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function leftSlide(){
+            window.location.href = "http://127.0.0.1:5500/ClothingSite/content2.html";
+        }
+        function rightSlide(){
+            window.location.href = "http://127.0.0.1:5500/ClothingSite/content1.html";
+        }
+        function backToHome(){
+            window.location.href = "http://127.0.0.1:5500/ClothingSite/index.html";
+        }
+       function addCart(){
+            window.location.href = "http://127.0.0.1:5500/ClothingSite/cart.html";
+       }
+       
+    </script>
+</body>
+</html>

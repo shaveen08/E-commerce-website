@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins&family=Silkscreen&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /*Navigation bar*/
+        .header{
+            overflow: hidden;
+        }
+        #brand-title{
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .navbar{
+            margin: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+            width: 100%;
+            background: #fff;
+            /*box-shadow: 0 5px 5px .1px rgb(214, 213, 213);*/
+            position: fixed;
+            flex: 1;
+            font-weight: 590;
+        }
+        .nav-left{
+            margin-right: 32px;
+            display: flex;
+            gap: 0;
+            align-items: center;
+        }
+        .search-icon{
+            height: 17px;
+            width: 18px;
+            margin: 10px;
+        }
+        #split-icon{
+            padding: 0 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        #drop{
+            display: flex;
+            justify-content: flex-start;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li a, .dropbtn {
+            display: inline-block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: #cacaca;
+        }
+        li.dropdown {
+            display: inline-block;
+        }
+        .dropdown_content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown_content a {
+            color: #040404;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown_content a:hover {background-color: #cacaca;}
+        .dropdown:hover .dropdown_content {
+            display: block;
+        }
+
+        /*Container*/
+        .container{
+            margin: 0 10px;
+            overflow: hidden;
+        }
+
+        /*Banner*/
+        .banner img{
+            margin-bottom: 10px;
+            width:100%; 
+            height: 700px;
+        }
+        #banner-content{
+            font-family: 'Raleway', sans-serif;
+            position: absolute;
+            top: 30%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+        }
+
+        /*Cards*/
+        .cards .closet{
+            display: flex;
+            margin: 0;
+            gap: 8px;
+        }
+        .cards, #card_title{
+            margin-bottom: 10px;
+        }
+        .card-content {
+            padding: 0 2px;
+        }
+
+        .cards h4 {
+            color: #333;
+        }
+
+        .cards p {
+            color: #666;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .card img:hover{
+            background-color: #cacaca;
+        }
+        a .row_posters{
+            width: 100%;
+            object-fit: contain;
+            max-height: 1310px;
+            background: #e9e9e9;
+            padding-bottom: 40px;
+        }
+        .row_posters:hover{
+            background-color: #cacaca;
+        }
+
+        .model{
+            gap:8px;
+            margin: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .models img{
+            height: 600px;
+            box-sizing: border-box;
+        }
+        #exploreBtn{
+            position: relative;
+            bottom: 250px;
+            left: 1000px;
+            font-size: 30px;
+            background-color: #0000001b;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+        button{
+            outline: none;
+            border: none;
+        }
+        /*Footer*/
+        .footer {
+            background: #171717;
+            color: #fff;
+            height: 150px;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /*Mobile view*/
+        @media only screen and (max-width: 767px){
+            /*Navigation bar*/
+            .header{
+                overflow: hidden;
+            }
+            #brand-title{
+                display: flex;
+                align-items: center;
+                height: 40px;
+                padding: 0;
+                font-size: 19px;
+            }
+            .navbar{
+                margin: 0 10px;
+                display: flex;
+                justify-content: space-between;
+                z-index: 1;
+                width: 100%;
+                background: #fff;
+                /*box-shadow: 0 5px 5px .1px rgb(214, 213, 213);*/
+                position: fixed;
+                flex: 1;
+                font-weight: 590;
+            }
+            .nav-left, .nav-right{
+                display: none;
+            }
+            
+            /*Container*/
+            .container{
+                margin: 0 10px;
+                overflow: hidden;
+            }
+
+            /*Banner*/
+            .banner img{
+                margin-bottom: 10px;
+                width:100%; 
+                height: 570px;
+            }
+            #banner-content{
+                margin: 0 auto;
+                text-align: justify;
+                text-justify: distribute;
+                text-wrap: balance;
+                font-size: 40px;
+            }
+
+            /*Cards*/
+            #card_title h2{
+                font-size: 16px;
+            }
+            .cards .closet {
+                width: 100%;
+                overflow-x: scroll;
+            }
+            .cards .closet::-webkit-scrollbar{
+                display: none;
+            }
+            .closet img{
+                height: 250px;
+                width: 250px;
+            }
+
+            /*Models*/
+            .models .model{
+                display: flex;
+                overflow-x: scroll;
+            }
+            .model::-webkit-scrollbar{
+                display: none;
+            }
+            .models #big-poster{
+                width: aut0;
+                height: 400px;
+            }
+            .model img{
+                height:270px;
+                margin: 0 auto;
+            }
+            #exploreBtn{
+                position: relative;
+                top: 380px;
+                left: 20px;
+                font-size: 20px;
+                background-color: #0000001b;
+                padding: 5px 20px;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <h2 id="brand-title">Brand name</h2>
+            <div class="nav-right">
+                <ul id="drop">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Collections</a>
+                        <div class="dropdown_content">
+                            <a href="#">Man</a>
+                            <a href="#">Woman</a>
+                            <a href="#">Kids</a>
+                            <a href="#">Watches</a>
+                            <a href="#">Shoes</a>
+                            <a href="#">Accessories</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-left">
+                <img src="./images/search.png" class="search-icon">
+                <span id="login"><a href="#">login</a></span>
+                <span id="split-icon">|</span>
+                <span id="cart"><a href="#">My cart</a></span>
+            </div>        
+        </div>
+    </div>
+    <div class="container">
+        <div class="banner">
+            <img src="./images/Poster.png">
+            <h2 id="banner-content">Elevate Your Wardrobe <br />
+                Simplyfy Your Life.
+            </h2>
+        </div>
+        <div class="cards">
+            <h2 id="card_title">Most popular</h2>
+            <div class="closet">
+                <a href="http://127.0.0.1:5500/ClothingSite/content1.html#" target="_blank">
+                    <img src="./images/black shirt1.png" alt="" class="row_posters" id="blackshirt">
+                    <div class="card-content">
+                        <h4>Black shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/tracks.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="http://127.0.0.1:5500/ClothingSite/content2.html">
+                    <img src="./images/white shirt1.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/lower.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+                <a href="">
+                    <img src="./images/denim1.png" alt="" class="row_posters">
+                    <div class="card-content">
+                        <h4>White shirt</h4>
+                        <p>700inr</p>
+                    </div>
+                </a>
+            </div>   
+        </div>
+        <div class="models">
+            <button id="exploreBtn" onclick="exploreBtn()" style="cursor: pointer;">Explore ></button>
+            <img src="./images/models.jpg" id="big-poster">
+            <div class="model">
+                <img src="./images/model5.jpg" alt="" >
+                <img src="./images/model2.png" alt="" >
+                <img src="./images/model6.jpg" alt="" >
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+    </div>
+    <script>
+        function exploreBtn(){
+        window.location.href = "http://127.0.0.1:5500/ClothingSite/closet.html";
+        //url = "D:\PROJECTS\Javascript\Clothing site\closet.html";
+       }
+    </script>
+</body>
+</html>
