@@ -23,57 +23,58 @@
             align-items: center;
             padding: 0 20px;
         }
-        .navbar{
-            margin: 0 10px;
+        nav{
             display: flex;
             justify-content: space-between;
-            z-index: 1;
+            align-items: center;
+            height: 50px;
             width: 100%;
-            background: #fff;
-            /*box-shadow: 0 5px 5px .1px rgb(214, 213, 213);*/
             position: fixed;
             flex: 1;
-            font-weight: 590;
+            background: #fff;
+            z-index: 22;
         }
-        .nav-left{
-            margin-right: 32px;
-            display: flex;
-            gap: 0;
-            align-items: center;
+        nav .nav-left, #login, #split-icon, #cart{
+            position: relative;
+            bottom: 6px;
+            padding-right: 10px;
         }
         .search-icon{
+            position: relative;
+            top: 6px;
             height: 17px;
             width: 18px;
             margin: 10px;
+            bottom: 0;
         }
         #split-icon{
             padding: 0 10px;
         }
-        a{
+        nav a{
             text-decoration: none;
             color: #000;
         }
-        #drop{
+        nav #drop{
             display: flex;
             justify-content: flex-start;
         }
-        ul{
+        nav ul{
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
         }
-        li a, .dropbtn {
+        nav li a, .dropbtn {
             display: inline-block;
             color: #000;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
-        li a:hover, .dropdown:hover .dropbtn {
+        nav li a:hover, .dropdown:hover .dropbtn {
             background-color: #cacaca;
         }
-        li.dropdown {
+        nav li.dropdown {
             display: inline-block;
         }
         .dropdown_content {
@@ -94,6 +95,15 @@
         .dropdown_content a:hover {background-color: #cacaca;}
         .dropdown:hover .dropdown_content {
             display: block;
+        }
+
+        .menu{
+            margin: 0 10px;
+            cursor: pointer;
+            display: none;
+        }
+        .menu #close{
+            display: none;
         }
 
         /*Container*/
@@ -194,25 +204,34 @@
             }
             #brand-title{
                 display: flex;
-                align-items: center;
+                align-self: flex-start;
                 height: 40px;
-                padding: 0;
+                padding: 0 10PX;
                 font-size: 19px;
             }
-            .navbar{
+            nav{
                 margin: 0 10px;
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
                 z-index: 1;
+                height: auto;
                 width: 100%;
                 background: #fff;
-                /*box-shadow: 0 5px 5px .1px rgb(214, 213, 213);*/
-                position: fixed;
-                flex: 1;
-                font-weight: 590;
             }
-            .nav-left, .nav-right{
+            nav li{
+                display: block;
+                padding: 10px 0;
+            }
+
+            .nav-left, .nav-right {
                 display: none;
+                flex-direction: column;
+            }
+            .menu{
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 8px;
             }
             
             /*Container*/
@@ -281,7 +300,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="navbar">
+        <nav>
             <h2 id="brand-title">Brand name</h2>
             <div class="nav-right">
                 <ul id="drop">
@@ -305,8 +324,12 @@
                 <span id="login"><a href="#">login</a></span>
                 <span id="split-icon">|</span>
                 <span id="cart"><a href="#">My cart</a></span>
-            </div>        
-        </div>
+            </div>
+            <div class="menu">
+                <span id="open"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></span>
+                <span id="close"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></span>
+            </div>       
+        </nav>
     </div>
     <div class="container">
         <div class="banner">
@@ -376,9 +399,34 @@
     </div>
     <script>
         function exploreBtn(){
-        window.location.href = "closet.html";
+        window.location.href = "http://127.0.0.1:5500/ClothingSite/closet.html";
         //url = "D:\PROJECTS\Javascript\Clothing site\closet.html";
        }
+
+        const navbar = document.querySelector('nav');
+        const openMenuRight = document.querySelector('.nav-right');
+        const openMenuLeft = document.querySelector('.nav-left');
+        const showMenu = document.querySelector('#open');
+        const closeMenu = document.querySelector('#close');
+
+        navbar.style.zIndex = '22';
+        showMenu.addEventListener('click', ()=>{
+            openMenuRight.style.display = 'block';
+            openMenuLeft.style.display = 'block';
+            navbar.style.position = 'fixed';
+
+            showMenu.style.display = 'none';
+            closeMenu.style.display = 'block';
+        });
+
+        closeMenu.addEventListener('click', ()=>{
+            openMenuRight.style.display = 'none';
+            openMenuLeft.style.display = 'none';
+            navbar.style.position = 'fixed';
+
+            showMenu.style.display = 'block';
+            closeMenu.style.display = 'none';
+        });
     </script>
 </body>
 </html>
