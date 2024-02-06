@@ -33,14 +33,12 @@
         flex: 1;
         z-index: 1;
     }
-    .nav-left{
-        margin-right: 10px;
+    .nav-left img{
+        margin: 6px 0;
+        height: 20px;
+        width: 20px;
         display: flex;
-        justify-content: space-around;
         align-items: center;
-    }
-    #split-icon{
-        padding: 0 10px;
     }
     a{
         text-decoration: none;
@@ -100,19 +98,35 @@
 
     /*Mobile view*/
     @media only screen and (max-width: 767px){
-        #brand-title{
+        .navbar{
+            margin: 0;
+            padding: 0;
+            height: 40px;
+            font-size: 20px;
+            width: 100%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            font-size: 19px;
+            white-space: nowrap;
+            z-index: 10;
         }
-        .nav-left{
-            font-size: 13px;
+        #brand-title{
+            font-size: 18px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .nav-left img{
+            margin: 10px;
+        }
+        #back-arrow{
+            height: 23px;
         }
         /*Container*/
         .card-container{
             height: 300px;   
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             margin-bottom: 10px;
         }
     }
@@ -121,16 +135,11 @@
 <body>
     <div class="header">
         <div class="navbar">
-                <img src="./images/left-chevron.png" id="back-arrow"  onclick="backToHome()">
-            <div class="nav-right">
-                <!--<span><a href="">back</a></span>-->
-            </div>
+            <img src="./images/left-chevron.png" id="back-arrow"  onclick="backToHome()">
             <h2 id="brand-title">Brand name</h2>
             <div class="nav-left">
-                <span id="login"><a href="#">login</a></span>
-                <span id="split-icon">|</span>
-                <span id="cart"><a href="#">My cart</a></span>
-            </div>        
+                <a href="cart.html"><img src="./images/cart.png" alt="cart"></a>
+            </div>      
         </div>
     </div>
 
