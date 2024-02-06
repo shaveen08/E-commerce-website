@@ -23,7 +23,7 @@
     #brand-title{
         display: flex;
         align-items: center;
-        margin-left: 350px;
+        justify-content: flex-end;
     }
     .navbar{
         padding: 0 10px;
@@ -37,10 +37,11 @@
         flex: 1;
         font-weight: 590;
     }
-    .nav-left{
-        margin-right: 10px;
+    .nav-left img{
+        margin: 6px 0;
+        height: 20px;
+        width: 20px;
         display: flex;
-        justify-content: space-around;
         align-items: center;
         
     }
@@ -208,28 +209,28 @@
         /*Mobile view*/
     @media only screen and (max-width: 767px){
         .navbar{
+            margin: 0;
+            padding: 0;
             height: 40px;
             font-size: 20px;
             width: 100%;
-            position: relative;
-            right: 240px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             white-space: nowrap;
+            z-index: 10;
         }
-        .navbar, .nav-left {
-            margin: 0;
-        }
-        .nav-left {
-            position: relative;
-            left: 92px;
+        .nav-left img{
+            margin: 10px;
         }
         #back-arrow{
-            position: relative;
-            top: 4px;
-            left: 240px;
             height: 23px;
         }
         .navbar h2{
-            font-size: 16px;
+            font-size: 18px;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
         }
         #login a, #split-icon a, #cart a{
             font-size: 15px;
@@ -270,11 +271,11 @@
             overflow: hidden;
         }
         #content-title{
-            font-size: 16px;
+            font-size: 20px;
         }
         #content-details{
             text-align: justify;
-            font-size: 14px;
+            font-size: 18px;
             width: 100% !important;
             box-sizing: border-box;
         }
@@ -339,7 +340,7 @@
         }
         button{
             width: 100%;
-            font-size: 14px;
+            font-size: 16px;
             padding: 0;
             margin: 0;
         }
@@ -367,13 +368,8 @@
         <div class="navbar">
             <img src="./images/left-chevron.png" id="back-arrow" onclick="backToHome()">
             <h2 id="brand-title">Brand name</h2>
-            <div class="nav-right">
-                <!--<span><a href="">back</a></span>-->
-            </div>
             <div class="nav-left">
-                <span id="login"><a href="#">login</a></span>
-                <span id="split-icon">|</span>
-                <span id="cart"><a href="cart.html">My cart</a></span>
+                <a href="cart.html"><img src="./images/cart.png" alt="cart"></a>
             </div>        
         </div>
     </div>
