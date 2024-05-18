@@ -301,7 +301,7 @@
     <script>
         const cards = document.querySelector('.card-container');
 
-        fetch('data.json')
+        fetch('./data/data.json')
         .then(res => res.json())
         .then(data => {
             // console.log('Data fetched:', data)
