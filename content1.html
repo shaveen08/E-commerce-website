@@ -5,358 +5,382 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins&family=Silkscreen&display=swap');
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-    /*Navigation bar*/
-    .header{
-        overflow: hidden;
-    }
-    #brand-title{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
-    .navbar{
-        padding: 0 10px;
-        margin: 0;
-        display: flex;
-        justify-content: space-between;
-        z-index: 1;
-        width: 100%;
-        background: #fff;
-        position: fixed;
-        flex: 1;
-        font-weight: 590;
-    }
-    .nav-left img{
-        margin: 6px 0;
-        height: 20px;
-        width: 20px;
-        display: flex;
-        align-items: center;
-        
-    }
-    #split-icon{
-        padding: 0 10px;
-    }
-    .navbar a{
-        text-decoration: none;
-        color: #000;
-    }
-    #back-arrow{
-        margin-top: 5px;
-        padding: 3px;
-        height: 25px;
-        width: 25dpx;
-    }
-    #back-arrow:hover{
-        border-radius: 50%;
-        background-color: #eaeaea;
-    }
-
-    /*CONTAINER*/
-    .card-container{
-        overflow: hidden;
-        display: flex;
-    }
-    /*POSTER*/
-    .poster{
-        background-color: #d7d7d7;
-        height: 100vh;
-        width: 70%;
-    }
-    .poster img{
-        height: 100vh;
-        width: 70%;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .arrow {
-        position: absolute;
-        top: 50%;
-        right: 975px;
-        width: 70%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    #left-arrow, #right-arrow {
-        height: 60px;
-        width: 40px;
-        opacity: 0.5;
-    }
-
-    #left-arrow:hover, #right-arrow:hover {
-        border-radius: 50%;
-        background-color: #bebebe;
-    }
-
-    /*CONTENT*/
-    .content{
-        width: 30%;
-        margin: 150px 0;
-        padding: 0 30px;
-    }
-    #content-details, .color-palettes{
-        margin: 10px 0;
-    }
-
-    /*COLOR PALETTES*/
-    .colors{
-        height: 40px;
-        width: 215px;
-        border: 1px solid #9b9b9b;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
-    }
-
-    input[type="radio"]{
-        display: none;
-    }
-    .color-option {
-        height: 30px; 
-        width: 30px;
-        margin: 4px;
-        display: inline-block;
-        border-radius: 50%;
-        cursor: pointer;
-        border-radius: 50%;
-        background-color: #e4e4e4;
-    } 
-    .color-option:hover {
-        border: 1px solid #000;
-    }
-
-    .circle:hover {
-        border: 1px solid #000;
-    } 
-
-    /*QUANTITY*/
-    .quantity{
-        display: flex;
-        align-items: center;
-        margin-left: 105px;
-        margin-bottom: 10px;
-        gap: 10px;
-    }
-    .quantity input{
-        margin: 5px 0;
-        height: 40px;
-        width: 70px;
-        padding: 0 10px;
-        border: 1px solid #9b9b9b;
-    }
-
-    /*SIZE*/
-    .size{
-        margin-bottom: 10px;
-    }
-    .size-option {
-        display: inline-block;
-        width: 43px;
-        height: 40px;
-        border: 1px solid #9b9b9b; /* Add a border for better visibility */
-        text-align: center;
-        line-height: 38px;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-
-    .size-option:hover{
-        border: 1px solid #000;
-    }
-
-    /*CART & WISHLIST BUTTONS*/
-    .addcart-wishlist{
-        display: flex;
-        justify-content: space-between;
-        font-size: 13px;
-    }
-    #addcart{
-        background-color: #000;
-        color: #fff;
-        padding: 15px 30px;
-        padding-right: 75px;
-        border: none;
-    }
-    #wishlist{
-        background-color: #d7d7d7;
-        color: #000;
-        padding: 15px 30px;
-        padding-right: 80px;
-        border: none;
-    }
-    #add{
-        position: relative;
-        left: 55px;
-    }
-    #wishlist #add{
-        position: relative;
-        left: 60px;
-    }
-        /*Mobile view*/
-    @media only screen and (max-width: 767px){
-        .navbar{
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Poppins&family=Silkscreen&display=swap');
+        *{
             margin: 0;
             padding: 0;
-            height: 40px;
-            font-size: 20px;
-            width: 100%;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        /*Navigation bar*/
+        .header{
+            overflow: hidden;
+        }
+        #brand-title{
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            white-space: nowrap;
-            z-index: 10;
-        }
-        .nav-left img{
-            margin: 10px;
-        }
-        #back-arrow{
-            height: 23px;
-        }
-        .navbar h2{
-            font-size: 18px;
-            margin: 0;
-            display: flex;
             justify-content: flex-end;
         }
-        #login a, #split-icon a, #cart a{
-            font-size: 15px;
-        }
-        #login, #split-icon{
-            display: none;
-        }
-
-        /*Container*/
-        .card-container{
-            height: auto;  
-            width: 100%; 
+        .navbar{
+            padding: 0 10px;
+            margin: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1;
+            width: 100%;
+            background: #fff;
+            position: fixed;
+            flex: 1;
+            font-weight: 590;
         }
-
+        .nav-left img{
+            margin: 6px 0;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            
+        }
+        #split-icon{
+            padding: 0 10px;
+        }
+        .navbar a{
+            text-decoration: none;
+            color: #000;
+        }
+        #back-arrow{
+            margin-top: 5px;
+            padding: 3px;
+            height: 25px;
+            width: 25dpx;
+        }
+        #back-arrow:hover{
+            border-radius: 50%;
+            background-color: #eaeaea;
+        }
+    
+        /*CONTAINER*/
+        .card-container{
+            overflow: hidden;
+        }
+        form{
+            display: flex;
+            flex-direction: row;
+        }
         /*POSTER*/
         .poster{
             background-color: #d7d7d7;
-            width: auto;
-            height: 400px;
-            margin: 10px;
+            height: 100vh;
+            width: 60%;
         }
         .poster img{
-            height: 300px;
-            width: 350px;
+            height: 100vh;
+            width: 90%;
             position: relative;
-            top: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        .poster #left-arrow, #right-arrow{
-            display: none;
-        }
-        .content{
+        .arrow {
+            position: absolute;
+            top: 50%;
+            right: 975px;
+            width: 70%;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        #left-arrow, #right-arrow {
+            height: 60px;
+            width: 40px;
+            opacity: 0.5;
+        }
+    
+        #left-arrow:hover, #right-arrow:hover {
+            border-radius: 50%;
+            background-color: #bebebe;
+        }
+    
+        /*CONTENT*/
+        .content{
+            width: 30%;
+            margin: 150px 0;
+            padding: 0 30px;
+        }
+        #content-details, .color-palettes{
             margin: 10px 0;
-            width: 100%;
-            overflow: hidden;
         }
-        #content-title{
-            font-size: 20px;
-        }
-        #content-details{
-            text-align: justify;
-            font-size: 18px;
-            width: 100% !important;
-            box-sizing: border-box;
-        }
-
+    
         /*COLOR PALETTES*/
         .colors{
-            height: 38px;
-            width: 180px;
+            height: 40px;
+            width: 215px;
             border: 1px solid #9b9b9b;
             display: flex;
             justify-content: space-around;
-            margin: 10px 0;
+            margin-top: 10px;
         }
-        .colors label{
-            height: 25px; 
-            width: 25px;
+    
+        input[type="radio"]{
+            display: none;
+        }
+        .color-option {
+            height: 30px; 
+            width: 30px;
+            margin: 4px;
+            display: inline-block;
+            border-radius: 50%;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #e4e4e4;
         } 
-
+        .color-option:hover {
+            border: 1px solid #000;
+        }
+    
         .circle:hover {
             border: 1px solid #000;
         } 
-
+    
         /*QUANTITY*/
         .quantity{
+            display: flex;
+            align-items: center;
+            margin-left: 105px;
+            margin-bottom: 10px;
             gap: 10px;
-            position: relative;
-            top: 15px;
-            left: 70px;
-            padding: 0;
-            margin: 0;
         }
         .quantity input{
-            height: 38px;
-            width: 60px;
+            margin: 5px 0;
+            height: 40px;
+            width: 70px;
+            padding: 0 10px;
+            border: 1px solid #9b9b9b;
         }
-
+    
         /*SIZE*/
         .size{
-            display: flex;
-            flex-direction: row;
-            gap: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
-        #size-child{
-            padding: 7px 15px;
+        .size-option {
+            display: inline-block;
+            width: 43px;
             height: 40px;
-            border: 1px solid #9b9b9b;
+            border: 1px solid #9b9b9b; /* Add a border for better visibility */
             text-align: center;
+            line-height: 38px;
+            margin-right: 10px;
+            cursor: pointer;
         }
-        #size-child:hover{
+    
+        .size-option:hover{
             border: 1px solid #000;
         }
-
+    
         /*CART & WISHLIST BUTTONS*/
-        .addcart-wishlist {
-            gap: 10px;
-            margin: 0 auto;
-            text-align: center;
-            height: 50px;
-            width: 100%;
-            overflow: hidden;
-        }
-        button{
-            width: 100%;
-            font-size: 16px;
-            padding: 0;
-            margin: 0;
+        .addcart-wishlist{
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin: 15px 0;
+            gap: 10px;     
         }
         #addcart{
             background-color: #000;
             color: #fff;
+            height: 50px; width: 250px;
+            /* padding: 15px 30px;
+            padding-right: 70px; */
             border: none;
-            white-space: nowrap;
+            cursor: pointer;   
         }
         #wishlist{
             background-color: #d7d7d7;
             color: #000;
+            height: 50px; width: 180px;
+            /* padding: 15px 30px;
+            padding-right: 50px; */
             border: none;
-            white-space: nowrap;
+            cursor: pointer;   
         }
-        .addcart-wishlist span{
-            display: none;
+        #add{
+            position: relative;
+            left: 40px;
         }
-    }
-    </style>
+        #wishlist #add{
+            position: relative;
+            left: 25px;
+        }
+            /*Mobile view*/
+        @media only screen and (max-width: 767px){
+            .navbar{
+                margin: 0;
+                padding: 0;
+                height: 40px;
+                font-size: 20px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                white-space: nowrap;
+                z-index: 10;
+            }
+            .nav-left img{
+                margin: 10px;
+            }
+            #back-arrow{
+                height: 23px;
+            }
+            .navbar h2{
+                font-size: 18px;
+                margin: 0;
+                display: flex;
+                justify-content: flex-end;
+            }
+            #login a, #split-icon a, #cart a{
+                font-size: 15px;
+            }
+            #login, #split-icon{
+                display: none;
+            }
+    
+            /*Container*/
+            .card-container{
+                overflow: hidden;
+            }
+            .card-container{
+                height: auto;  
+                width: 100%; 
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+            }
+            /*POSTER*/
+            .poster{
+                background-color: #d7d7d7;
+                width: auto;
+                height: 300px;
+                margin: 10px;
+                margin-top: 40px;
+    
+            }
+            .poster img{
+                height: 300px;
+                width: 350px;
+                position: relative;
+                top: 150px;
+            }
+            /* CONTENT */
+            .content{
+                display: flex;
+                flex-wrap: wrap;
+                margin: 5px 0 20px 0;
+                width: 100%;
+                overflow: hidden;
+                gap: 5px;
+            }
+            #content-title{
+                font-size: 16px;
+            }
+            #content-details{
+                text-align: justify;
+                margin: 2px 0;
+                font-size: 14px;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            
+            .content p{
+                font-size: 14px;
+            }
+            /*COLOR PALETTES*/
+            .colors{
+                height: 38px;
+                width: 180px;
+                border: 1px solid #9b9b9b;
+                display: flex;
+                justify-content: space-around;
+                margin: 2px 0 0 0;
+            }
+            #content-details, .color-palettes{
+                margin: 0 0 5px 0;
+            }
+            .colors label{
+                height: 25px; 
+                width: 25px;
+            } 
+    
+            .circle:hover {
+                border: 1px solid #000;
+            } 
+    
+            /*QUANTITY*/
+            .quantity{
+                gap: 10px;
+                position: relative;
+                top: 10px;
+                left: 0px;
+                padding: 0;
+                margin: 0;
+            }
+            .quantity input{
+                height: 38px;
+                width: 60px;
+            }
+    
+            /*SIZE*/
+            .size{
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+            }
+            .size-child{
+                padding: 7px 15px;
+                height: 40px;
+                border: 1px solid #9b9b9b;
+                text-align: center;
+            }
+            .size-child:active{
+                border: 1px solid #000;
+            }
+    
+            /*CART & WISHLIST BUTTONS*/
+            .addcart-wishlist {
+                gap: 10px;
+                margin: 0 auto;
+                text-align: center;
+                height: 50px;
+                width: 100%;
+                overflow: hidden;
+            }
+            button{
+                width: 100%;
+                font-size: 13px;
+                padding: 0;
+                margin: 0;
+            }
+            #addcart{
+                background-color: #000;
+                color: #fff;
+                border: none;
+                white-space: nowrap;
+                padding: 5px 0px;
+                padding-right: 0px;
+            }
+            #wishlist{
+                background-color: #d7d7d7;
+                color: #000;
+                border: none;
+                white-space: nowrap;
+                padding: 5px 0px;
+                padding-right: 0px;
+            }
+            .addcart-wishlist span{
+                display: none;
+            }
+        }
+        </style>
 </head>
 <body>
     <!--Navigation-->
@@ -371,64 +395,86 @@
     </div>
     <!--Body-->
     <div class="card-container">
-        <div class="poster">
-            <img src="./images/black shirt1.png" id="img" class="row_posters">
-            <div class="arrow">
-                <img src="./images/left-chevron.png" id="left-arrow" onclick="leftSlide()">
-                <img src="./images/right-chevron.png" id="right-arrow" onclick="rightSlide()">
+        <form id="form">
+            <div class="poster">
+                <img src="./images/black shirt1.png" id="img" class="row_posters">
             </div>
-        </div>
-        <div class="content">
-            <h2 id="content-title">Drop shoulder Shirt</h2>
-            <h3 id="content-details">ZARA</h3>
-            <p id="content-details">"Unisex shirt: Pure comfort in a timeless design. Soft cotton, classic fit. Your essential wardrobe staple."</p>
-            <div class="color-palettes">
-                <p>Choose color</p>
-                <div class="colors">
-                    <input type="radio" name="color" class="circle child1" />
-                    <label for="black" class="color-option" style="background-color: #262626;"></label>
-
-                    <input type="radio" name="color" class="circle child2" />
-                    <label for="red" class="color-option" style="background-color: #8c3535;"></label>
-
-                    <input type="radio" name="color" class="circle child3" />
-                    <label for="grey" class="color-option" style="background-color: #595755;"></label>
-
-                    <input type="radio" name="color" class="circle child4" />
-                    <label for="white" class="color-option" style="background-color: #eae5ec;"></label>
+            <div class="content">
+                <h2 id="content-title">Drop shoulder Shirt</h2>
+                <h3 id="content-details">ZARA</h3>
+                <p id="content-details" style="font-size: 13px;">"Unisex shirt: Pure comfort in a timeless design. Soft cotton, classic fit. Your essential wardrobe staple."</p>
+                <!-- COLOR -->
+                <div class="color-palettes">
+                    <p><b>Choose color</b></p>
+                    <div class="colors">
+                        <input type="radio" id="black" name="color" class="circle child1" />
+                        <label for="black" class="color-option" style="background-color: #262626;"></label>
+    
+                        <input type="radio" id="red" name="color" class="circle child2" />
+                        <label for="red" class="color-option" style="background-color: #8c3535;"></label>
+    
+                        <input type="radio" id="grey" name="color" class="circle child3" />
+                        <label for="grey" class="color-option" style="background-color: #595755;"></label>
+    
+                        <input type="radio" id="white" name="color" class="circle child4" />
+                        <label for="white" class="color-option" style="background-color: #eae5ec;"></label>
+                    </div>
+                </div>
+                <!-- QUANTITY -->
+                <div class="quantity">
+                    <p>Qty</p>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1">
+                </div>
+                <!-- SIZE -->
+                <div class="size">
+                    <input type="radio" id="size-s" name="size" class="size-child">
+                    <label for="size-s" class="size-option">S</label>
+    
+                    <input type="radio" id="size-m" name="size" class="size-child">
+                    <label for="size-m" class="size-option">M</label>
+    
+                    <input type="radio" id="size-l" name="size" class="size-child">
+                    <label for="size-l" class="size-option">L</label>
+    
+                    <input type="radio" id="size-xl" name="size" class="size-child">
+                    <label for="size-xl" class="size-option">XL</label>
+                </div>
+                <div class="addcart-wishlist">
+                    <button type="submit" id="addcart">ADD TO CART <span id="add">+</span></button>
+                    <button type="button" id="wishlist" onclick="wishList()">WISH LIST<span id="add">+</span></button>
                 </div>
             </div>
-            <div class="quantity">
-                <p>Qty</p>
-                <input type="number" id="quantity" min="1" value="1">
-            </div>
-            <div class="size">
-                <input type="radio" name="size" id="size-child">
-                <label for="size-s" class="size-option">S</label>
-
-                <input type="radio" name="size" id="size-child">
-                <label for="size-m" class="size-option">M</label>
-
-                <input type="radio" name="size" id="size-child">
-                <label for="size-l" class="size-option">L</label>
-
-                <input type="radio" name="size" id="size-child">
-                <label for="size-xl" class="size-option">XL</label>
-            </div>
-            <div class="addcart-wishlist">
-                <button id="addcart" onclick="addCart()">ADD TO CART <span id="add">+</span></button>
-                <button id="wishlist" onclick="wishList()">WISH LIST<span id="add">+</span></button>
-            </div>
-        </div>
+        </form>
     </div>
     <script>
-        function leftSlide() {
-            window.location.href = "content1.html";
-        }
+        const formEle = document.getElementById('form');
+        formEle.addEventListener('submit', e => {
+            e.preventDefault();
     
-        function rightSlide() {
-            window.location.href = "content2.html";
-        }
+            let imageEle = document.getElementById('img');
+            let imageSrc = imageEle.src;
+            const formData = {
+                image: imageSrc,
+                title: document.getElementById('content-title').innerText,
+                details: document.getElementById('content-details').innerText,
+                description: document.querySelector('p[id="content-details"]').innerText,
+                color: document.querySelector('input[name="color"]:checked') ? document.querySelector('input[name="color"]:checked').id : null,
+                quantity: document.getElementById('quantity').value,
+                size: document.querySelector('input[name="size"]:checked') ? document.querySelector('input[name="size"]:checked').id : null
+            };
+    
+            const jsonData = JSON.stringify(formData);
+            console.log(jsonData);
+    
+            fetch('/cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: jsonData,
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log('Error', err));
+        });
     
         function backToHome() {
             window.location.href = "index.html";
@@ -436,7 +482,8 @@
     
         function addCart() {
             window.location.href = "cart.html";
-        }           
+        }
     </script>
+    
 </body>
 </html>
