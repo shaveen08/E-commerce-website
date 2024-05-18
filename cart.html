@@ -102,7 +102,9 @@
             color: grey;
         }
         hr{
-            margin: 10px 0;
+            transform: rotate(90deg);
+            position: relative;
+            right: 83rem; top: 145px;
         }
 
         /*QUANTITY*/
@@ -121,6 +123,7 @@
         .rate button{
             margin-top: 10px;
             padding: 6px 20px;
+            margin-left: -12px;
             border: none;
             background-color: #000;
             color: #fff;
@@ -132,7 +135,7 @@
         .rate{
             position: relative;
             top: 20px;
-            left: 50px;
+            left: 0px;
         }
         .clear-btn button{
             padding: 2px 8px;
@@ -140,7 +143,7 @@
             float: right;
             position: relative;
             top: 220px;
-            right: 0px;
+            right: 20px;
             
         }
         /*Mobile view*/
@@ -194,7 +197,7 @@
             }
             .card-container img {
                 width: 400px;
-                height: 350px;
+                height: 300px;
                 background-color: #e9e9e9;
             }
             .card {
@@ -240,8 +243,8 @@
                 gap: 10px;
                 margin: 5px 0;
                 position: relative;
-                top: 55px;
-                left: 280px;
+                top: 58px;
+                left: 210px;
             }
             .quantity input{
                 margin:0;
@@ -265,15 +268,15 @@
             .clear-btn button{
                 padding: 6px 8px;
                 border: none;
-                float: right;
                 position: relative;
                 z-index: 100;
-                left: 340px;
-                top: -620px;
+                right: 0px; top: 0;
+                transform: translate(265px, -570px);
+                /* transform: translate(-25px, 650px); */
             }
             hr{
                 position: relative;
-                bottom: 75px;
+                bottom: 0px;
             }
         }
     </style>
@@ -283,7 +286,7 @@
     <div class="header">
         <div class="navbar">
                 <img src="./images/left-chevron.png" id="back-arrow"  onclick="backToHome()">
-            <div class="nav-right">
+                <div class="nav-right">
                 <!--<span><a href="">back</a></span>-->
             </div>
             <h2 id="brand-title">Brand name</h2>
@@ -293,37 +296,53 @@
         </div>
     </div>
         
-    <div class="card-container">
-        <div class="card">
-            <img src="./images/black shirt1.png" alt="">
-            <div class="card-content">
-                <div class="card-details">
-                    <h3>White Shirt</h3>
-                    <h4>ZARA</h4>
-                    <p>"Unisex shirt: Pure comfort in a timeless design.
-                        Soft cotton, classic fit. Your essential wardrobe staple."</p>
-                </div>
-                <div class="quantity">
-                    <p>Qty</p>
-                    <input type="number" id="qty-number" min="1" value="1">
-                </div>
-                <div class="rate">
-                    <p>700inr</p>
-                    <button onclick="buy()">Buy</button>
-                </div>
-            </div>
-            <div class="clear-btn">
-                <button id="clearBtn" onclick="clearBtn()">X</button>
-            </div> 
-        </div>
-        <hr>
+    <div class="card-container"></div>
+        
     <script>
+        const cards = document.querySelector('.card-container');
+
+        fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+            // console.log('Data fetched:', data)
+            data.forEach( cardData => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                // console.log(cardData);
+                // console.log(card);
+                card.innerHTML = `
+                <img src="./images/black shirt1.png" alt="">
+                    <div class="card-content">
+                        <div class="card-details">
+                             <h3>${cardData["title"]}</h3>
+                             <h4>${cardData["details"]}</h4>
+                             <p>${cardData["description"]}</p>
+                         </div>
+                         <div class="quantity">
+                             <p>Qty</p>
+                             <input type="number" id="qty-number" min="1" value="1">
+                         </div>
+                         <div class="rate">
+                             <p>700inr</p>
+                             <button onclick="buy()">Buy</button>
+                         </div>
+                    </div>
+                    <div class="clear-btn">
+                         <button id="clearBtn" onclick="clearBtn()">X</button>
+                    </div>
+                `;
+                cards.appendChild(card);
+            })
+        })
+        .catch(err => console.log(err));
+
         function backToHome(){
             window.location.href = "index.html";
         }
 
         function clearBtn() {
-            const cartItem = document.querySelector('.card1'); 
+            const cartItem = document.querySelector('.card'); 
             if (cartItem) {
                 cartItem.remove();
                 alert('Item removed from cart!');
